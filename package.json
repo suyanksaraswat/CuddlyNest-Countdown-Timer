@@ -1,7 +1,6 @@
 {
-  "name": "deep-consulting-frontend",
+  "name": "cuddlynest-countdown-timer",
   "version": "0.1.0",
-  "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.28",
     "@fortawesome/free-regular-svg-icons": "^5.13.0",
