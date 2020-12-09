@@ -1,0 +1,118 @@
+.App {
+  width: 500px;
+  margin: 30px auto auto auto;
+}
+
+.App > .time-input-container {
+  display: flex;
+  justify-content: center;
+}
+
+.App > .time-input-container > .countdown-label {
+  font-size: 20px;
+  margin-top: 3px;
+}
+
+.App > .time-input-container > .countdown-input,
+.App > .time-input-container > .countdown-button {
+  padding: 10px 15px;
+  font-size: 20px;
+  border-radius: 0;
+  padding: 4px;
+}
+
+.App > .time-input-container > .countdown-input {
+  border: solid 3px #acacac;
+  margin-left: 4px;
+  margin-right: 4px;
+  height: 20px;
+  line-height: 20px;
+}
+
+.App > .time-input-container > .countdown-input:disabled,
+.App > .time-input-container > .countdown-button:disabled {
+  cursor: not-allowed;
+}
+
+.App > .time-input-container > .countdown-input:disabled {
+  border: solid 3px #ececec;
+}
+
+.App > .time-input-container > .countdown-button {
+  border: solid 3px transparent;
+  background-color: #5bafa4;
+  height: 35px;
+  line-height: 20px;
+  width: 100px;
+  color: #fff;
+}
+
+.App > .time-input-container > .countdown-button:disabled {
+  background-color: #5ecabc;
+}
+
+.App > .halfway-container {
+  font-size: 20px;
+  font-style: italic;
+  height: 25px;
+  display: block;
+  text-align: center;
+  margin-top: 15px;
+}
+
+.App > .time-display {
+  display: flex;
+  font-size: 150px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.App > .time-display > div.step-control {
+  align-self: center;
+  float:right;
+  font-size: 65px;
+  margin-left: 30px;
+}
+
+.App > .time-display > div.step-control.disabled {
+  color: #ececec;
+}
+
+.App >.time-speed-container {
+  display: flex;
+  justify-content: center;
+}
+
+.App >.time-speed-container > button {
+  height: 45px;
+  border: solid 3px #acacac;
+  font-size: 20px;
+  margin: 5px;
+  width: 80px;
+  color: #1d1d1d;
+}
+
+.App >.time-speed-container > button::selection{
+  background-color: transparent;
+}
+
+.App >.time-speed-container > button.active {
+  border: solid 3px #636363;
+  color: #fff;
+  background-color: #acacac;
+}
+
+
+.App > div.time-display > span.twenty-seconds {
+  color: #f00;
+}
+
+@keyframes blinky {
+  0% { color: auto; }
+  75% { color: transparent; }
+}
+
+.App > .time-display > span.blinky {
+  animation: blinky 500ms infinite;
+}
