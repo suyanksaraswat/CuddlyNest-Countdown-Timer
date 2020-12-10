@@ -1,7 +1,7 @@
+import React, { PureComponent } from 'react';
 import { library, dom } from '@fortawesome/fontawesome-svg-core'
 import { faPlayCircle, faPauseCircle } from '@fortawesome/free-regular-svg-icons';
 import Halfway from './Halfway';
-import React, { PureComponent } from 'react';
 import TimeDisplay from './TimeDisplay';
 import TimeInput from './TimeInput';
 import TimeSpeed from './TimeSpeed';
@@ -24,14 +24,10 @@ class App extends PureComponent {
   constructor() {
     super();
     this.state = initialState;
-    this.onCountdownClick = this.onCountdownClick.bind(this);
-    this.onSpeedChange = this.onSpeedChange.bind(this);
-    this.onCountdownChange = this.onCountdownChange.bind(this);
-    this.onStartClick = this.onStartClick.bind(this);
     this.timeout = null;
   }
 
-  onCountdownClick(clickable) {
+  onCountdownClick = (clickable) => {
     return () => {
       if (clickable) {
         const { run } = this.state;
@@ -41,7 +37,7 @@ class App extends PureComponent {
     };
   }
 
-  onSpeedChange(speed) {
+  onSpeedChange = (speed) => {
     return () => {
       const { basePace } = this.state;
       const actualPace = Math.floor(basePace / speed);
@@ -49,7 +45,7 @@ class App extends PureComponent {
     };
   }
 
-  onCountdownChange(evt) {
+  onCountdownChange = (evt) => {
     const { started } = this.state;
 
     if (!started) {
@@ -58,7 +54,7 @@ class App extends PureComponent {
     }
   }
 
-  onStartClick() {
+  onStartClick = () => {
     const { proposedTime } = this.state;
 
     if (!isNaN(proposedTime)) {
@@ -94,20 +90,30 @@ class App extends PureComponent {
 
     return (
       <div className="App">
+        {/* Input field for minutes */}
         <TimeInput
           onCountdownChange={this.onCountdownChange}
           started={started}
           proposedTime={proposedTime}
-          onStartClick={this.onStartClick} />
+          onStartClick={this.onStartClick}
+        />
+
+        {/* Show half time message */}
         <Halfway
           time={time}
           proposedTime={proposedTime}
-          started={started} />
+          started={started}
+        />
+
+        {/* Show countdown */}
         <TimeDisplay
           run={run}
           started={started}
           time={time}
-          onCountdownClick={onCountdownClick} />
+          onCountdownClick={onCountdownClick}
+        />
+
+        {/* Change speed of countdown */}
         <TimeSpeed
           started={started}
           speed={speed}
